@@ -15,6 +15,10 @@ form.addEventListener("submit", (e) => {
         },
         body: JSON.stringify(body),
     }).then((response) => response.json()).then((data) => {
-      console.log(data);
+        if (data.status === "success") {
+            window.location = "index.html";   
+        } else {
+            alert(data.message);
+        }
     })
 });
